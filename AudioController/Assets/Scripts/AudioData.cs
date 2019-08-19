@@ -97,6 +97,10 @@ namespace Audio.Data
                     (this._recordsRestricted = this._records);
             }
         }
+        public AnimationCurve LoudnessSpread
+        {
+            get { return this._settingDetection._loudnessSpread; }
+        }
         public float OutherRadiusDetection
         {
             get { return this._settingDetection._maxDistance; }
