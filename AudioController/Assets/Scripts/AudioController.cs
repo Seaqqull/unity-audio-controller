@@ -8,7 +8,7 @@ namespace Audio
     /// <summary>
     /// Controls playback of audio.
     /// </summary>
-    public class AudioContainer : MonoBehaviour
+    public class AudioController : MonoBehaviour
     {
         [SerializeField] private string _name;
 
@@ -28,7 +28,7 @@ namespace Audio
 
 
         private IReadOnlyList<Data.AudioSource> _audiosRestricted;
-        private List<AudioContainer> _containers;
+        private List<AudioController> _containers;
 
 
         public IReadOnlyList<Data.AudioSource> Audios
@@ -39,12 +39,12 @@ namespace Audio
                     (this._audiosRestricted = this._audios);
             }
         }
-        public List<AudioContainer> Containers
+        public List<AudioController> Containers
         {
             get
             {
                 return (this._containers) ??
-                    (this._containers = new List<AudioContainer>());
+                    (this._containers = new List<AudioController>());
             }
             set
             {
@@ -76,8 +76,8 @@ namespace Audio
         {
             if (!IsAccommodate) return;
 
-            Containers = GetComponentsInChildren<AudioContainer>().
-                OfType<AudioContainer>().ToList();
+            Containers = GetComponentsInChildren<AudioController>().
+                OfType<AudioController>().ToList();
 
             for (int i = 0; i < _containers.Count; i++)
             {
